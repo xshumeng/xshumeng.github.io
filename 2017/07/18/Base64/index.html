@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>Archives: 2017 | xshumeng</title>
+  <title>BASE64 简单实现 | xshumeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="后端,Erlang,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,Emacs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xshumeng">
-<meta property="og:url" content="//litten.me/archives/2017/index.html">
+  <meta name="description" content="本文以C语言和JavaScript语言来实现BASE64编码和解码的简单功能，目的只是实践BASE64的编解码功能。两种实现均不支持中文的编解码。其中JavaScript实现可在本站的Tools处找到并使用。 C语言版实现base64.c123456789101112131415161718192021222324252627282930313233343536373839404142434445">
+<meta name="keywords" content="BASE64">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BASE64 简单实现">
+<meta property="og:url" content="//litten.me/2017/07/18/Base64/index.html">
 <meta property="og:site_name" content="xshumeng">
+<meta property="og:description" content="本文以C语言和JavaScript语言来实现BASE64编码和解码的简单功能，目的只是实践BASE64的编解码功能。两种实现均不支持中文的编解码。其中JavaScript实现可在本站的Tools处找到并使用。 C语言版实现base64.c123456789101112131415161718192021222324252627282930313233343536373839404142434445">
+<meta property="og:updated_time" content="2017-07-18T14:39:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xshumeng">
+<meta name="twitter:title" content="BASE64 简单实现">
+<meta name="twitter:description" content="本文以C语言和JavaScript语言来实现BASE64编码和解码的简单功能，目的只是实践BASE64的编解码功能。两种实现均不支持中文的编解码。其中JavaScript实现可在本站的Tools处找到并使用。 C语言版实现base64.c123456789101112131415161718192021222324252627282930313233343536373839404142434445">
   
     <link rel="alternative" href="/atom.xml" title="xshumeng" type="application/atom+xml">
   
@@ -150,74 +154,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Base64" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/18/AsciiToChar/" class="archive-article-date">
-  	<time datetime="2017-07-18T14:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/18/AsciiToChar/">ASCII TO CHAR 简单实现</a>
+    <h1 class="article-title" itemprop="name">
+      BASE64 简单实现
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ASCII TO CHAR</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/18/Base64/" class="archive-article-date">
+        
+        <a href="/2017/07/18/Base64/" class="archive-article-date">
   	<time datetime="2017-07-18T13:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/18/Base64/">BASE64 简单实现</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文以C语言和JavaScript语言来实现BASE64编码和解码的简单功能，目的只是实践BASE64的编解码功能。两种实现均不支持中文的编解码。其中JavaScript实现可在本站的Tools处找到并使用。</p>
+<h1 id="C语言版实现"><a href="#C语言版实现" class="headerlink" title="C语言版实现"></a>C语言版实现</h1><h3 id="base64-c"><a href="#base64-c" class="headerlink" title="base64.c"></a>base64.c</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * Copyright(C), 2016, Simon.</div><div class="line"> * File name     : base64.c</div><div class="line"> * Author        : Simon</div><div class="line"> * E-Mail        : xue.shumeng@yahoo.com</div><div class="line"> * Version       : 0.1.0</div><div class="line"> * Date          : Wed Apr 13 08:38:35 2016</div><div class="line"> * Description   : 简单实现Base64加解密</div><div class="line"> * Function List : encode/3</div><div class="line"> * History       : None</div><div class="line"> */</div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"base64.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">/* Base64 编码字符集 */</span></div><div class="line"><span class="keyword">char</span> enchar[<span class="number">64</span>] = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"</span>;</div><div class="line"></div><div class="line"><span class="comment">/* Base64 解码字符集 */</span></div><div class="line"><span class="keyword">int</span> de[<span class="number">256</span>] =  &#123;</div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 0   - 15</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 16  - 31</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">62</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">63</span>, <span class="comment">// 32  - 47</span></div><div class="line">  <span class="number">52</span>, <span class="number">53</span>, <span class="number">54</span>, <span class="number">55</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">58</span>, <span class="number">59</span>, <span class="number">60</span>, <span class="number">61</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 48  - 63</span></div><div class="line">  <span class="number">-1</span>,  <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="comment">// 64  - 79</span></div><div class="line">  <span class="number">15</span>, <span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">24</span>, <span class="number">25</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 80  - 95</span></div><div class="line">  <span class="number">-1</span>, <span class="number">26</span>, <span class="number">27</span>, <span class="number">28</span>, <span class="number">29</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">32</span>, <span class="number">33</span>, <span class="number">34</span>, <span class="number">35</span>, <span class="number">36</span>, <span class="number">37</span>, <span class="number">38</span>, <span class="number">39</span>, <span class="number">40</span>, <span class="comment">// 96  - 111</span></div><div class="line">  <span class="number">41</span>, <span class="number">42</span>, <span class="number">43</span>, <span class="number">44</span>, <span class="number">45</span>, <span class="number">46</span>, <span class="number">47</span>, <span class="number">48</span>, <span class="number">49</span>, <span class="number">50</span>, <span class="number">51</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 112 - 127</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 128 - 143</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 144 - 159</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 160 - 175</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 176 - 191</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 192 - 207</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 208 - 223</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 224 - 239</span></div><div class="line">  <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="comment">// 240 - 255</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * Function    : encode</div><div class="line"> * Description : 简单实现Base编码</div><div class="line"> * Calls       : None</div><div class="line"> * Called By   : main</div><div class="line"> * Input       : const char *input :: 被编码字符</div><div class="line"> *               const size_t length :: 被编码字符长度</div><div class="line"> *               char *output :: 输出指针</div><div class="line"> * Output      : char *outpt :: 输出已编码的字符指针</div><div class="line"> * Return      : void</div><div class="line"> * Others      : None</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">encode</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *input, <span class="keyword">char</span> *output)</span></span></div><div class="line">&#123;</div><div class="line">  *output = <span class="string">'\0'</span>;</div><div class="line">  <span class="keyword">size_t</span> len = <span class="built_in">strlen</span>(input);</div><div class="line">  <span class="keyword">if</span>(input == <span class="literal">NULL</span> || len &lt;= <span class="number">0</span>)</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  <span class="keyword">char</span> *in = (<span class="keyword">char</span> *)input; <span class="comment">/* 输入字符 */</span></div><div class="line">  <span class="keyword">char</span> *out = (<span class="keyword">char</span> *)output; <span class="comment">/* 输出字符 */</span></div><div class="line">  <span class="keyword">char</span> *end = (<span class="keyword">char</span> *)input + len; <span class="comment">/* 结束地址 */</span></div><div class="line"></div><div class="line">  <span class="comment">/*</span></div><div class="line">   * 掩码</div><div class="line">   * 0x30 0011 0000</div><div class="line">   * 0x3c 0011 1100</div><div class="line">   * 0x3f 0011 1111</div><div class="line">   */</div><div class="line">  <span class="keyword">while</span>(end - in &gt;= <span class="number">3</span>)</div><div class="line">    &#123;</div><div class="line">      <span class="comment">/* 每次处理三个字节 */</span></div><div class="line">      *out++ = enchar[(in[<span class="number">0</span>] &gt;&gt; <span class="number">2</span>)];</div><div class="line">      *out++ = enchar[(in[<span class="number">0</span>] &lt;&lt; <span class="number">4</span> &amp; <span class="number">0x30</span>) | (in[<span class="number">1</span>] &gt;&gt; <span class="number">4</span>)];</div><div class="line">      *out++ = enchar[(in[<span class="number">1</span>] &lt;&lt; <span class="number">2</span> &amp; <span class="number">0x3c</span>) | (in[<span class="number">2</span>] &gt;&gt; <span class="number">6</span>)];</div><div class="line">      *out++ = enchar[in[<span class="number">2</span>] &amp; <span class="number">0x3f</span>];</div><div class="line">      in += <span class="number">3</span>;</div><div class="line">    &#125;</div><div class="line">  <span class="comment">/* 不足3个字节时 */</span></div><div class="line">  <span class="keyword">if</span>(end - in &gt; <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">      *out++ = enchar[(in[<span class="number">0</span>] &gt;&gt; <span class="number">2</span>)];</div><div class="line">      <span class="keyword">if</span>(end - in == <span class="number">2</span>)</div><div class="line">        &#123;</div><div class="line">          *out++ = enchar[(in[<span class="number">0</span>] &lt;&lt; <span class="number">4</span> &amp; <span class="number">0x30</span>) | (in[<span class="number">1</span>] &gt;&gt; <span class="number">4</span>)];</div><div class="line">          *out++ = enchar[(in[<span class="number">1</span>] &lt;&lt; <span class="number">2</span>) &amp; <span class="number">0x3c</span>];</div><div class="line">          *out++ = <span class="string">'='</span>;</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(end - in == <span class="number">1</span>)</div><div class="line">        &#123;</div><div class="line">          *out++ = enchar[(in[<span class="number">0</span>] &lt;&lt; <span class="number">4</span>) &amp; <span class="number">0x30</span>];</div><div class="line">          *out++ = <span class="string">'='</span>;</div><div class="line">          *out++ = <span class="string">'='</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *input, <span class="keyword">char</span> *output)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span>(input == <span class="literal">NULL</span> || output == <span class="literal">NULL</span>)</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  <span class="keyword">size_t</span> len = <span class="built_in">strlen</span>(input);</div><div class="line">  <span class="keyword">if</span>(len &lt; <span class="number">4</span> || len % <span class="number">4</span> != <span class="number">0</span>)</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  <span class="keyword">char</span> *in = (<span class="keyword">char</span> *)input;</div><div class="line">  <span class="keyword">char</span> *out = (<span class="keyword">char</span> *)output;</div><div class="line">  <span class="keyword">char</span> *end = (<span class="keyword">char</span> *)input + len;</div><div class="line">  <span class="comment">/*</span></div><div class="line">   * 掩码</div><div class="line">   * 0xFC 1111 1100</div><div class="line">   */</div><div class="line">  <span class="keyword">for</span>(;in &lt; end; in += <span class="number">4</span>)</div><div class="line">    &#123;</div><div class="line">      *out++ = ((de[in[<span class="number">0</span>]] &lt;&lt; <span class="number">2</span>) &amp; <span class="number">0xFC</span>) | ((de[in[<span class="number">1</span>]] &gt;&gt; <span class="number">4</span>) &amp; <span class="number">0x03</span>);</div><div class="line">      *out++ = ((de[in[<span class="number">1</span>]] &lt;&lt; <span class="number">4</span>) &amp; <span class="number">0xF0</span>) | ((de[in[<span class="number">2</span>]] &gt;&gt; <span class="number">2</span>) &amp; <span class="number">0x0F</span>);</div><div class="line">      *out++ = ((de[in[<span class="number">2</span>]] &lt;&lt; <span class="number">6</span>) &amp; <span class="number">0xC0</span>) | de[in[<span class="number">3</span>]];</div><div class="line">    &#125;</div><div class="line">  <span class="keyword">if</span>(*(end - <span class="number">2</span>) == <span class="string">'='</span>)</div><div class="line">    &#123;</div><div class="line">      *(out - <span class="number">2</span>) = <span class="string">'\0'</span>;</div><div class="line">    &#125;</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(*(end - <span class="number">1</span>) == <span class="string">'='</span>)</div><div class="line">    &#123;</div><div class="line">      *(out - <span class="number">1</span>) = <span class="string">'\0'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="base64-h"><a href="#base64-h" class="headerlink" title="base64.h"></a>base64.h</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * Copyright(C), 2016, Simon.</div><div class="line"> * File name     : base64.h</div><div class="line"> * Author        : Simon</div><div class="line"> * E-Mail        : xue.shumeng@yahoo.com</div><div class="line"> * Version       : 0.1.0</div><div class="line"> * Date          : Thu Apr 21 16:41:52 2016</div><div class="line"> * Description   : 简单Base64编码、解码头文件</div><div class="line"> * Function List : None</div><div class="line"> * History       : None</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> BASE</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BASE</span></div><div class="line"></div><div class="line"><span class="comment">/* 函数声明 */</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">encode</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *input, <span class="keyword">char</span> *output)</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">decode</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *input, <span class="keyword">char</span> *output)</span></span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<h3 id="encode-c"><a href="#encode-c" class="headerlink" title="encode.c"></a>encode.c</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"base64.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span>(argc == <span class="number">1</span>)</div><div class="line">    &#123;</div><div class="line">      errno = EINVAL;</div><div class="line">      perror(<span class="string">"UNKNOW ARG"</span>);</div><div class="line">      <span class="built_in">exit</span>(EINVAL);</div><div class="line">    &#125;</div><div class="line">  <span class="keyword">char</span> *uncode = argv[<span class="number">1</span>];</div><div class="line">  <span class="keyword">char</span> *encoded;</div><div class="line">  encoded = <span class="built_in">malloc</span>(<span class="built_in">strlen</span>(uncode) * <span class="number">4</span> / <span class="number">3</span>);</div><div class="line">  encode(uncode,encoded);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Encode : %s\n"</span>,encoded);</div><div class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="decode-c"><a href="#decode-c" class="headerlink" title="decode.c"></a>decode.c</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"base64.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span>(argc == <span class="number">1</span>)</div><div class="line">    &#123;</div><div class="line">      errno = EINVAL;</div><div class="line">      perror(<span class="string">"UNKNOW ARG"</span>);</div><div class="line">      <span class="built_in">exit</span>(EINVAL);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  <span class="keyword">char</span> *input = argv[<span class="number">1</span>];</div><div class="line">  <span class="keyword">char</span> *decoded;</div><div class="line">  <span class="keyword">size_t</span> len = <span class="built_in">strlen</span>(input);</div><div class="line">  decoded = <span class="built_in">malloc</span>(len * <span class="number">4</span> / <span class="number">3</span>);</div><div class="line">  decode(input,decoded);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Decode : %s\n"</span>,decoded);</div><div class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="JavaScript实现"><a href="#JavaScript实现" class="headerlink" title="JavaScript实现"></a>JavaScript实现</h1><h3 id="base64-html"><a href="#base64-html" class="headerlink" title="base64.html"></a>base64.html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Encode And Decode Base64<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">	 .nav&#123;</div><div class="line">	     margin:0 auto;</div><div class="line">	     margin-top:100px;</div><div class="line">	     width:1000px;</div><div class="line">	     height:500px;</div><div class="line">	 &#125;</div><div class="line">	 .src_div&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	     float:left;</div><div class="line">	 &#125;</div><div class="line">	 .dst_div&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	     float:left;</div><div class="line">	 &#125;</div><div class="line">	 .src&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	 &#125;</div><div class="line">	 .dst&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	 &#125;</div><div class="line">	 .de&#123;</div><div class="line">	     width:100px;</div><div class="line">	     margin-top:30px;</div><div class="line">	     margin-left:360px;</div><div class="line">	 &#125;</div><div class="line">	 .en&#123;</div><div class="line">	     width:100px;</div><div class="line">	     margin-top:0px;</div><div class="line">	 &#125;</div><div class="line">	 .clean&#123;</div><div class="line">	     width:100px;</div><div class="line">	 &#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">	 // 初始化页面（清空所有文本框）</div><div class="line">	 function init()</div><div class="line">	 &#123;</div><div class="line">	     document.getElementById("dst").value = "";</div><div class="line">	     document.getElementById("src").value = "";</div><div class="line">	     document.getElementById("src").select();</div><div class="line">	 &#125;</div><div class="line">	 </div><div class="line">	 // Encode Charset</div><div class="line">	 var encodeCharset = ['A','B','C','D','E','F','G','H','I','J','K','L','M',</div><div class="line">			      'N','O','P','Q','R','S','T','U','V','W','X','Y','Z',</div><div class="line">			      'a','b','c','d','e','f','g','h','i','j','k','l','m',</div><div class="line">			      'n','o','p','q','r','s','t','u','v','w','x','y','z',</div><div class="line">			      '0','1','2','3','4','5','6','7','8','9','+','/'];</div><div class="line">	 </div><div class="line">	 // Decode Charset</div><div class="line">	 var decodeCharset = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,  // 000 - 015  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 016 - 031  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63,   // 032 - 047  </div><div class="line">			      52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,  // 048 - 063  </div><div class="line">			     -1,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14,   // 064 - 079  </div><div class="line">			      15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1,  // 080 - 095  </div><div class="line">			     -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,   // 096 - 111  </div><div class="line">			      41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1,  // 112 - 127  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 128 - 143  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 144 - 159   </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 160 - 175  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 176 - 191  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 192 - 207  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 208 - 223  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,   // 224 - 239  </div><div class="line">			     -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,]; // 240 - 255</div><div class="line">	 </div><div class="line">	 function encode()</div><div class="line">	 &#123;</div><div class="line">	     var src = document.getElementById("src").value;</div><div class="line">	     var arr = src.split("");</div><div class="line">	     var len = end = arr.length;</div><div class="line">	     /*</div><div class="line">	      * 掩码</div><div class="line">	      * 0x3F 0011 1111</div><div class="line">	      * 0x30 0011 0000</div><div class="line">	      * 0x0F 0000 1111</div><div class="line">	      * 0x3e 0011 1100</div><div class="line">	      */</div><div class="line">	     var dstArr = [];</div><div class="line">	     for(var i = 0; i &lt; len; i+=3)</div><div class="line">	     &#123;</div><div class="line">		 if(end - i == 1)</div><div class="line">		 &#123;</div><div class="line">		     dstArr.push(encodeCharset[(arr[i].charCodeAt() &gt;&gt; 2 &amp; 0x3f)]);</div><div class="line">		     dstArr.push(encodeCharset[(arr[i].charCodeAt() &lt;&lt; 4 &amp; 0x30)]);</div><div class="line">		     dstArr.push('=');</div><div class="line">		     dstArr.push('=');</div><div class="line">		     break;</div><div class="line">		 &#125;</div><div class="line">		 if(end - i == 2)</div><div class="line">		 &#123;</div><div class="line">		     dstArr.push(encodeCharset[(arr[i].charCodeAt() &gt;&gt; 2 &amp; 0x3f)]);</div><div class="line">		     dstArr.push(encodeCharset[(arr[i].charCodeAt() &lt;&lt; 4 &amp; 0x30) | (arr[i+1].charCodeAt() &gt;&gt; 4 &amp; 0x0f)]);</div><div class="line">		     dstArr.push(encodeCharset[(arr[i+1].charCodeAt() &lt;&lt; 2 &amp; 0x3e)]);</div><div class="line">		     dstArr.push('=');</div><div class="line">		     break;</div><div class="line">		 &#125;</div><div class="line">		 dstArr.push(encodeCharset[((arr[i+0].charCodeAt() &gt;&gt; 2) &amp; 0x3f)]);</div><div class="line">		 dstArr.push(encodeCharset[((arr[i+0].charCodeAt() &lt;&lt; 4) &amp; 0x30) | ((arr[i+1].charCodeAt() &gt;&gt; 4) &amp; 0x0f)]);</div><div class="line">		 dstArr.push(encodeCharset[(arr[i+1].charCodeAt() &lt;&lt; 2 &amp; 0x3e) | (arr[i+2].charCodeAt() &gt;&gt; 6 &amp; 0x03)]);</div><div class="line">		 dstArr.push(encodeCharset[(arr[i+2].charCodeAt() &amp; 0x3f)]);</div><div class="line">	     &#125;</div><div class="line">	     document.getElementById("dst").value = dstArr.join('');</div><div class="line">	 &#125;</div><div class="line"></div><div class="line">	 function decode()</div><div class="line">	 &#123;</div><div class="line">	     var src = document.getElementById("src").value;</div><div class="line">	     var arr = src.split("");</div><div class="line">	     var len = end = arr.length;</div><div class="line">	     /*</div><div class="line">	      * 掩码</div><div class="line">	      * 0x3F 0011 1111</div><div class="line">	      * 0x30 0011 0000</div><div class="line">	      * 0x0F 0000 1111</div><div class="line">	      * 0x3e 0011 1100</div><div class="line">	      */</div><div class="line">	     var dstArr = [];</div><div class="line">	     if(len % 4 != 0 || len &lt; 4)</div><div class="line">		 return;</div><div class="line">	     </div><div class="line">	     for(var i = 0; i &lt; len; i += 4)</div><div class="line">	     &#123;</div><div class="line">		 //alert(i);</div><div class="line">		 dstArr.push(String.fromCharCode((decodeCharset[arr[i].charCodeAt()] &lt;&lt; 2 &amp; 0xFE) | (decodeCharset[arr[i+1].charCodeAt()] &gt;&gt; 4 &amp; 0x03)));</div><div class="line">		 dstArr.push(String.fromCharCode((decodeCharset[arr[i+1].charCodeAt()] &lt;&lt; 4 &amp; 0xF0) | (decodeCharset[arr[i+2].charCodeAt()] &gt;&gt; 2 &amp; 0x0F)));</div><div class="line">		 dstArr.push(String.fromCharCode((decodeCharset[arr[i+2].charCodeAt()] &lt;&lt; 6 &amp; 0xE0) | (decodeCharset[arr[i+3].charCodeAt()] &amp; 0x3F)));</div><div class="line">	     &#125;</div><div class="line">	     if(arr[len - 2] == '=')</div><div class="line">	     &#123;</div><div class="line">		 dstArr.pop();</div><div class="line">	     &#125;</div><div class="line">	     if(arr[len - 1] == '=')</div><div class="line">		 dstArr.pop();</div><div class="line">	     document.getElementById("dst").value = dstArr.join('');</div><div class="line">	 &#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"init()"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"src_div"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">"src"</span> <span class="attr">id</span>=<span class="string">"src"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dst_div"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">readonly</span>=<span class="string">"readonly"</span> <span class="attr">class</span>=<span class="string">"dst"</span> <span class="attr">id</span>=<span class="string">"dst"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"de"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Encode"</span> <span class="attr">onclick</span>=<span class="string">"encode()"</span>/&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"en"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Decode"</span> <span class="attr">onclick</span>=<span class="string">"decode()"</span>/&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"clean"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Clean"</span> <span class="attr">onclick</span>=<span class="string">"init()"</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">p</span>&gt;</span>注：  此程序仅支持ASCII字符编解码<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -229,57 +199,113 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://litten.me/2017/07/18/Base64/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/17/tools/" class="archive-article-date">
-  	<time datetime="2017-07-17T12:40:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/07/18/AsciiToChar/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ASCII TO CHAR 简单实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/17/tools/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TOOLS</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/17/tools/">TOOLS</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TOOLS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -302,8 +328,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//litten.me">
-  <title>Archives: 2017 | xshumeng</title>
+  <title>ASCII TO CHAR 简单实现 | xshumeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="后端,Erlang,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,Emacs">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xshumeng">
-<meta property="og:url" content="//litten.me/archives/2017/index.html">
+  <meta name="description" content="在Erlang开发时常常会看到Terminal里一串串的数字（ASCII），且这些数字对应的字符对异常排查等有很大的作用。而堡垒机不好随意做查看日志外的其他操作。故此，简单实现ASCII TO CHAR小应用来解决这个问题。此实现不支持中文。 123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta name="keywords" content="ASCII TO CHAR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASCII TO CHAR 简单实现">
+<meta property="og:url" content="//litten.me/2017/07/18/AsciiToChar/index.html">
 <meta property="og:site_name" content="xshumeng">
+<meta property="og:description" content="在Erlang开发时常常会看到Terminal里一串串的数字（ASCII），且这些数字对应的字符对异常排查等有很大的作用。而堡垒机不好随意做查看日志外的其他操作。故此，简单实现ASCII TO CHAR小应用来解决这个问题。此实现不支持中文。 123456789101112131415161718192021222324252627282930313233343536373839404142434">
+<meta property="og:updated_time" content="2017-07-18T14:39:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xshumeng">
+<meta name="twitter:title" content="ASCII TO CHAR 简单实现">
+<meta name="twitter:description" content="在Erlang开发时常常会看到Terminal里一串串的数字（ASCII），且这些数字对应的字符对异常排查等有很大的作用。而堡垒机不好随意做查看日志外的其他操作。故此，简单实现ASCII TO CHAR小应用来解决这个问题。此实现不支持中文。 123456789101112131415161718192021222324252627282930313233343536373839404142434">
   
     <link rel="alternative" href="/atom.xml" title="xshumeng" type="application/atom+xml">
   
@@ -150,36 +154,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-AsciiToChar" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/18/AsciiToChar/" class="archive-article-date">
-  	<time datetime="2017-07-18T14:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/18/AsciiToChar/">ASCII TO CHAR 简单实现</a>
+    <h1 class="article-title" itemprop="name">
+      ASCII TO CHAR 简单实现
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/07/18/AsciiToChar/" class="archive-article-date">
+  	<time datetime="2017-07-18T14:04:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Erlang开发时常常会看到Terminal里一串串的数字（ASCII），且这些数字对应的字符对异常排查等有很大的作用。而堡垒机不好随意做查看日志外的其他操作。故此，简单实现ASCII TO CHAR小应用来解决这个问题。此实现不支持中文。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>ASCII TO CHAR<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">	 .nav&#123;</div><div class="line">	     margin:0 auto;</div><div class="line">	     margin-top:100px;</div><div class="line">	     width:1000px;</div><div class="line">	     height:500px;</div><div class="line">	 &#125;</div><div class="line">	 .src_div&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	     float:left;</div><div class="line">	 &#125;</div><div class="line">	 .dst_div&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	     float:left;</div><div class="line">	 &#125;</div><div class="line">	 .src&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	 &#125;</div><div class="line">	 .dst&#123;</div><div class="line">	     width:500px;</div><div class="line">	     height:400px;</div><div class="line">	 &#125;</div><div class="line">	 .btn&#123;</div><div class="line">	     margin-top:30px;</div><div class="line">	     margin-left:440px;</div><div class="line">	 &#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">"javascript"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="xml"></span></div><div class="line">	 function ascii2char()</div><div class="line">	 &#123;</div><div class="line">	     // 获取要转义的字符</div><div class="line">	     var src = document.getElementById('src').value;</div><div class="line">	     // 正则用以匹配需转义字符中的所有数字</div><div class="line">	     var patter = /\d+/g;</div><div class="line">	     // 正则。。。</div><div class="line">	     var arr = src.match(patter);</div><div class="line">	     // temp::拼接字符串</div><div class="line">	     var temp = [];</div><div class="line">	     for(var i in arr)</div><div class="line">	     &#123;</div><div class="line">		 if(arr[i] <span class="tag">&lt; <span class="attr">32</span> || <span class="attr">arr</span>[<span class="attr">i</span>] &gt;</span> 126)</div><div class="line">		     temp.push(".");</div><div class="line">		 else</div><div class="line">		     temp.push(String.fromCharCode(arr[i]));</div><div class="line">	     &#125;</div><div class="line">	     document.getElementById("dst").value=temp.join('');</div><div class="line">	 &#125;</div><div class="line">	 // 初始化页面（清空输入框的内容）</div><div class="line">	 function init()</div><div class="line">	 &#123;</div><div class="line">	     document.getElementById("dst").value = "";</div><div class="line">	     document.getElementById("src").value = "";</div><div class="line">	     document.getElementById("src").select();</div><div class="line">	 &#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"init()"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"src_div"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">class</span>=<span class="string">"src"</span> <span class="attr">id</span>=<span class="string">"src"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dst_div"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">readonly</span>=<span class="string">"readonly"</span> <span class="attr">class</span>=<span class="string">"dst"</span> <span class="attr">id</span>=<span class="string">"dst"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Ascii To Char"</span> <span class="attr">onclick</span>=<span class="string">"ascii2char()"</span>/&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"clean"</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"Clean"</span> <span class="attr">onclick</span>=<span class="string">"init()"</span>&gt;</span></div><div class="line">	    <span class="tag">&lt;<span class="name">p</span>&gt;</span>注：  此程序将转换32-126之间的ASCII可打印字符，其他字符使用英文“.”号代替<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,95 +195,104 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://litten.me/2017/07/18/AsciiToChar/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/18/Base64/" class="archive-article-date">
-  	<time datetime="2017-07-18T13:01:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/18/Base64/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">BASE64 简单实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/18/Base64/">BASE64 简单实现</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">BASE64</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/17/tools/" class="archive-article-date">
-  	<time datetime="2017-07-17T12:40:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/17/tools/">TOOLS</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TOOLS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -302,8 +315,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
